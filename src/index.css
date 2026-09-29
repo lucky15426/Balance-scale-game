@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Fredoka', 'Outfit', sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}
+
+/* Custom background themes and game styling */
+.game-bg-gradient {
+  background: linear-gradient(180deg, #c7d2fe 0%, #e0e7ff 40%, #dcfce7 85%, #bbf7d0 100%);
+}
+
+.cloud-floating {
+  animation: floatCloud 25s linear infinite;
+}
+
+@keyframes floatCloud {
+  0% { transform: translateX(-100px); }
+  50% { transform: translateX(50px); }
+  100% { transform: translateX(-100px); }
+}
+
+.pulse-glowing {
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); }
+  100% { box-shadow: 0 0 30px rgba(234, 179, 8, 0.8); }
+}
+
+/* Glassmorphism cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.glass-card-dark {
+  background: rgba(30, 27, 75, 0.85);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Bounce animation on balance completion */
+@keyframes balancedCelebration {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.03); }
+}
+
+.animate-balanced {
+  animation: balancedCelebration 1.2s ease-in-out infinite;
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.5);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb {
+  background: #a78bfa;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8b5cf6;
+}
