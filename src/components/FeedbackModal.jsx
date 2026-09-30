@@ -10,6 +10,7 @@ export default function FeedbackModal({
   pointsEarned = 100,
   onNextLevel,
   onRestartLevel,
+  onClose,
   nextLevelText = 'Next Challenge →',
 }) {
   if (!isOpen) return null;
@@ -23,6 +24,19 @@ export default function FeedbackModal({
           exit={{ scale: 0.8, opacity: 0, y: 20 }}
           className="w-full max-w-md bg-white border-4 border-yellow-400 rounded-3xl p-6 sm:p-8 shadow-2xl text-center relative overflow-hidden"
         >
+          {/* Close button so user can dismiss modal to view the balanced scale anytime */}
+          {onClose && (
+            <button
+              onClick={() => {
+                playSound('click');
+                onClose();
+              }}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 font-black text-sm flex items-center justify-center transition-colors z-20 cursor-pointer"
+              title="Close and view scale"
+            >
+              ✕
+            </button>
+          )}
           {/* Top Decorative Sunburst Accent */}
           <div className="absolute -top-16 -left-16 w-32 h-32 bg-yellow-300 rounded-full blur-2xl opacity-60 pointer-events-none" />
           <div className="absolute -top-16 -right-16 w-32 h-32 bg-purple-300 rounded-full blur-2xl opacity-60 pointer-events-none" />
